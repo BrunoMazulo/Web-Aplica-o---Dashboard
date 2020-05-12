@@ -1,0 +1,88 @@
+.container {
+    max-width: 100%;
+	margin: 0 auto;
+	display: flex;
+    border: 1px solid #ccc;
+    padding-top: 20px;
+}
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flex >div{
+	flex: 1 1 200px;
+	margin: 20px;
+}
+
+.item {
+	text-align: center;
+	font-size: 1.5em;
+	min-width: 230px;
+	min-height: 150px;
+}
+
+.item2 {
+	/*background: rgb(71, 114, 255);*/
+	min-width: 400px;
+	min-height: 250px;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.chart1{
+	max-height: 250px;
+}
+.card {
+    border-radius: 12px;
+	box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    background-color: #FFFFFF;
+    color: #252422;
+	margin: 10px;
+	height: 110px;
+	min-width: 180px;
+	max-width: 220px;
+  }
+
+.card-category{
+	text-align: center;
+	color: #9A9A9A;
+    font-size: 16px;
+    line-height: 1.4em;
+}
+
+.card-footer{
+	text-align: right;
+	color: #9A9A9A;
+    font-size: 20px;
+    line-height: 2em;
+}
+/*.card{
+	margin: 20px;
+	height: 70px;
+	float: left;
+}*/
+.card-content{
+	width: 100px;
+	height: 40px;
+}
+.card-icon {
+
+float: left;
+width: 70px;
+height: 70px;
+margin: 2px;
+font-size: 70px;
+}
+
+.faExclamationCircle {
+	color: gold;
+}
+
+.faGlobe{
+	color: red;
+}
+
+.faChartBar{
+	color: green;
+}
