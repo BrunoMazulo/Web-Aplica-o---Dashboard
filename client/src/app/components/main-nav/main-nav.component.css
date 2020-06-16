@@ -6,3 +6,34 @@
   width: 200px;
   box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
 }
+
+#app{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.box1{
+  justify-content: flex-start;
+}
+
+.box2{
+  justify-content: flex-end;
+}
+
+.painel{
+  box-shadow: none;
+  border: none !important;
+  padding-left: 0px;
+}
+
+.painel-text{
+  align-items: center;
+  margin: 15px;
+  font-size: 16px;
+}
+
+.mat-expansion-panel-body {
+  padding: 0 0px 0px;
+}

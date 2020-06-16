@@ -1,38 +1,113 @@
+<div class="flex row menu-options">
+   <!-- <mat-form-field>
+   <input matInput
+          placeholder="Choose a date"
+          [satDatepicker]="picker2"
+          formControlName="date"
+          (dateInput)="addEvent($event)">
+    <sat-datepicker #picker2 [rangeMode]="true">
+    </sat-datepicker>
+    <sat-datepicker-toggle matSuffix [for]="picker2"></sat-datepicker-toggle>
+  </mat-form-field>
+  -->
+  <mat-form-field>
+    <mat-select (ngModel)="selectedheij" (selectionChange)="getIndicadorunico($event.value)" placeholder="Selecione o Heijunka">
+      <mat-option *ngFor="let hjk of heij" [value]="hjk.value">
+        {{hjk.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
 <div class="container flex row">
-    <div class="item">
-        <mat-card class="card">
-                <fa-icon [icon]="faExclamationCircle" class="card-icon faGlobe"></fa-icon>
-            <div class="col-7 col-md-8">
-                <div class="numbers">
-                  <p class="card-category">Total do Dia</p>
-                  <p class="card-title">35<p>
-                </div>
-              </div>
-              <div class="card-footer">
-                <hr>
-                <div>
-                 Montagens Paradas!
-                </div>
-              </div>
-        </mat-card>
+
+  <div _ngcontent-ibi-c5="" class="col-lg-3 col-md-6 col-sm-6">
+    <div _ngcontent-ibi-c5="" class="card card-stats">
+      <div _ngcontent-ibi-c5="" class="card-header card-header-danger card-header-icon">
+        <div _ngcontent-ibi-c5="" class="card-icon">
+          <i _ngcontent-ibi-c5="" class="material-icons">error_outline</i>
+        </div>
+        <p _ngcontent-ibi-c5="" class="card-category">Montagens Paradas</p>
+        <h3 _ngcontent-ibi-c5="" class="card-title">{{mparadas}} 
+          <small _ngcontent-ibi-c5="">OPs</small>
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div _ngcontent-ibi-c5="" class="col-lg-3 col-md-6 col-sm-6">
+    <div _ngcontent-ibi-c5="" class="card card-stats">
+      <div _ngcontent-ibi-c5="" class="card-header card-header-warning card-header-icon">
+        <div _ngcontent-ibi-c5="" class="card-icon">
+          <i _ngcontent-ibi-c5="" class="material-icons">settings</i>
+        </div>
+        <p _ngcontent-ibi-c5="" class="card-category">Peças Especiais</p>
+        <h3 _ngcontent-ibi-c5="" class="card-title">{{zppe}} 
+          <small _ngcontent-ibi-c5="">OPs</small>
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div _ngcontent-ibi-c5="" class="col-lg-3 col-md-6 col-sm-6">
+    <div _ngcontent-ibi-c5="" class="card card-stats">
+      <div _ngcontent-ibi-c5="" class="card-header card-header-success card-header-icon">
+        <div _ngcontent-ibi-c5="" class="card-icon">
+          <i _ngcontent-ibi-c5="" class="material-icons">bar_chart</i>
+        </div>
+        <p _ngcontent-ibi-c5="" class="card-category">Atendimento ao Heijunka</p>
+        <h3 _ngcontent-ibi-c5="" class="card-title">{{ult_hjk}} 
+          <small _ngcontent-ibi-c5="">%</small>
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div _ngcontent-ibi-c5="" class="col-lg-3 col-md-6 col-sm-6">
+    <div _ngcontent-ibi-c5="" class="card card-stats">
+      <div _ngcontent-ibi-c5="" class="card-header card-header-info card-header-icon">
+        <div _ngcontent-ibi-c5="" class="card-icon">
+          <i _ngcontent-ibi-c5="" class="material-icons">language</i>
+        </div>
+        <p _ngcontent-ibi-c5="" class="card-category">Aging Máx Fluxo/Prog</p>
+        <h3 _ngcontent-ibi-c5="" class="card-title">{{agingflx}}/{{agingprog}}
+          <small _ngcontent-ibi-c5="">D</small>
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container flex row space-between">
+    
+    <div class="item2">
+        <canvas id="lineChart" class="chart1"></canvas>
     </div>
 
+    
+
+    <div class="item2">
+        <canvas id="lineChart2" class="chart1"></canvas>
+    </div>
+</div>
+
+<!-- Card Antigo
     <div class="item">
-        <mat-card class="card">
-                <fa-icon [icon]="faExclamationCircle" class="card-icon faExclamationCircle"></fa-icon>
-            <div class="col-7 col-md-8">
-                <div class="numbers">
-                  <p class="card-category">Total do Dia</p>
-                  <p class="card-title">5<p>
-                </div>
+      <mat-card class="card">
+              <fa-icon [icon]="faExclamationCircle" class="card-icon faExclamationCircle"></fa-icon>
+          <div class="col-7 col-md-8">
+              <div class="numbers">
+                <p class="card-category">Total do Dia</p>
+                <p class="card-title">5<p>
               </div>
+            </div>
+            <div class="card-footer">
+              <hr>
               <div class="card-footer">
-                <hr>
-                <div class="card-footer">
-                 Peça Especial!
-                </div>
+              Peça Especial!
               </div>
-        </mat-card>
+            </div>
+      </mat-card>
     </div>
 
     <div class="item">
@@ -70,15 +145,4 @@
               </div>
         </mat-card>
     </div>
-
-</div>
-
-<div class="container flex row space-between">
-    
-    <div class="item2">
-        <canvas id="lineChart" class="chart1"></canvas>
-    </div>
-    <div class="item2">
-        <canvas id="lineChart2" class="chart1"></canvas>
-    </div>
-</div>
+ -->

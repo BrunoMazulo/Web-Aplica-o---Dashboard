@@ -16,6 +16,7 @@ class BandejaxRoutes {
         // this.router.get('/', (req, res) => res.send('Hello World - Games'));
         // Ao acessar essa rota, o método List da classe gamesController será executado.
         this.router.get('/', bandejaxController_1.default.List_prog);
+        this.router.get('/:heij', bandejaxController_1.default.List_all);
         // Ao acessar essa rota, o método GetOne da classe gamesController será executado.
         // this.router.get('/:id', gamesController.GetOne);
     }

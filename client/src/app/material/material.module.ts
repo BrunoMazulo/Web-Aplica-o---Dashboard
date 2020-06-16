@@ -12,6 +12,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatSortModule} from '@angular/material/sort';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
+import { MatSelectModule } from '@angular/material/select';
+
 
 // Para usar os botões do Angular Material
 const MaterialComponents = [
@@ -27,7 +33,13 @@ const MaterialComponents = [
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatExpansionModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  SatDatepickerModule,
+  SatNativeDateModule,
+  MatSelectModule,
 ];
 
 @NgModule({

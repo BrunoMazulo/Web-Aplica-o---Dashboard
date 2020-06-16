@@ -1,6 +1,8 @@
 import express, {Application, json} from 'express';
 import indexRoutes from './routes/indexRoutes';
 import bandejaxRoutes from './routes/bandejaxRoutes';
+import onepageRoutes from './routes/onepageRoutes';
+import filaRoutes from './routes/filaRoutes';
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -27,6 +29,8 @@ class Server{
     routes(): void{
         this.app.use('/', indexRoutes);
         this.app.use('/api/bandejax', bandejaxRoutes); 
+        this.app.use('/api/fila', filaRoutes);
+        this.app.use('/api/opage', onepageRoutes);
     }
 
     start(): void{ // Método criado para ficar escutando as requisições da variavel 'port'.

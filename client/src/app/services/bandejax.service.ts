@@ -9,8 +9,7 @@ export class BandejaxService {
   
   constructor(private HttpClient: HttpClient) { }
   
-  getBandejax(){
-    return this.HttpClient.get(`${this.API_URI}/bandejax`);
+  getBandejax2(areahjk: string){
+    return this.HttpClient.get(`${this.API_URI}/bandejax/${areahjk}`);
   }
-  
 }

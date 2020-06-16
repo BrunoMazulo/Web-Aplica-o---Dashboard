@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { areahjk } from '../models/areaheijunka';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,12 @@ getIndHeijunka(){
   return this.HttpClient.get(`${this.API_URI}`);
 }
 
+getIndHeijunico(areahjk: string){
+  return this.HttpClient.get(`${this.API_URI}${areahjk}`);
+}
+
+getOpsatrasadas(areahjk: string){
+  return this.HttpClient.get(`${this.API_URI}ops/${areahjk}`);
+}
 
 }

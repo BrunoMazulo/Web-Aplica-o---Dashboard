@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const bandejaxRoutes_1 = __importDefault(require("./routes/bandejaxRoutes"));
+const onepageRoutes_1 = __importDefault(require("./routes/onepageRoutes"));
+const filaRoutes_1 = __importDefault(require("./routes/filaRoutes"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 class Server {
@@ -25,6 +27,8 @@ class Server {
     routes() {
         this.app.use('/', indexRoutes_1.default);
         this.app.use('/api/bandejax', bandejaxRoutes_1.default);
+        this.app.use('/api/fila', filaRoutes_1.default);
+        this.app.use('/api/opage', onepageRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

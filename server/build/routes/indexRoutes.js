@@ -13,6 +13,8 @@ class IndexRoutes {
         // Ao acessar essa rota, o método index da classe indexController será executado.
         // this.router.get('/', indexController.index);
         this.router.get('/', indexController_1.indexController.indhjk);
+        this.router.get('/:heij', indexController_1.indexController.indichjkunico);
+        this.router.get('/ops/:heijops', indexController_1.indexController.indopsatrasadas);
     }
 }
 const indexRoutes = new IndexRoutes(); // Instanciando a classe 

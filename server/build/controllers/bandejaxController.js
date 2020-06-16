@@ -15,7 +15,9 @@ class BandejaxController {
     List_prog(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const conn = yield database_1.connect();
-            const bdjx = yield conn.query('SELECT carga_prog_conf.ordem, pd080_conf.ct, pd080_conf.cemb, pd080_conf.pn, pd080_conf.qtd, pd080_conf.desc, pd080_conf.oper, pd080_conf.data_flx, pd080_conf.resp_flx, pd080_conf.est_flx FROM carga_prog_conf INNER JOIN pd080_conf ON carga_prog_conf.ordem = pd080_conf.ordem WHERE (((pd080_conf.oper)<=carga_prog_conf.oper_fim))');
+            //const bdjx = await conn.query(
+            //  'SELECT carga_prog_conf.ordem, pd080_conf.ct, pd080_conf.cemb, pd080_conf.pn, pd080_conf.qtd, pd080_conf.desc, pd080_conf.oper, pd080_conf.data_flx, pd080_conf.resp_flx, pd080_conf.est_flx FROM carga_prog_conf INNER JOIN pd080_conf ON carga_prog_conf.ordem = pd080_conf.ordem WHERE (((pd080_conf.oper)<=carga_prog_conf.oper_fim))');
+            const bdjx = yield conn.query('SELECT * FROM portal_conformacao.bandejax_conformacao');
             res.json(bdjx);
             //const games = await pool.query('SELECT * FROM games'); // Executa está query e armazena na constante
             //res.json(games);
@@ -23,18 +25,19 @@ class BandejaxController {
     }
     List_all(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            const heij = req.params.heij;
+            let bandejax;
             const conn = yield database_1.connect();
-            const allpd = yield conn.query('SELECT * FROM pd080_conf');
-            res.json(allpd);
-        });
-    }
-    GetOne(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const id = req.params.id;
-            const conn = yield database_1.connect();
-            const bdjx = yield conn.query('SELECT * FROM games WHERE id = ?', [id]);
-            return res.json(bdjx[0]);
-            // res.json({text: 'Este é o jogo' + req.params.id});
+            if (heij === 'Conf') {
+                bandejax = yield conn.query('SELECT * FROM portal_conformacao.bandejax_conformacao');
+            }
+            else if (heij == 'Cort') {
+                bandejax = yield conn.query('SELECT * FROM portal_conformacao.bandejax_corte');
+            }
+            else if (heij == 'Trat') {
+                bandejax = yield conn.query('SELECT * FROM pd080_conf');
+            }
+            res.json(bandejax);
         });
     }
 }

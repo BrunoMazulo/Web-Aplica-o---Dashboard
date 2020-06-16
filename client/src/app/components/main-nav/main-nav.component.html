@@ -4,15 +4,34 @@
       [attr.role]="opened ? 'dialog' : 'navigation'"
       [mode]="opened ? 'side' : 'side'"
       [(opened)]="opened">
-    <mat-toolbar color="primary">Menu </mat-toolbar>
+    <mat-toolbar color="primary"><img src="../../../assets/embraer.png" width="150" height="35"> </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/dashboard" (click)="componentactive('Dashboard')"><mat-icon>dashboard</mat-icon>Dashboard</a>
-      <a mat-list-item routerLink="/bandejax"(click)="componentactive('Bandejax')"><mat-icon>description</mat-icon>Bandejax</a>
-      <a mat-list-item ><mat-icon>assignment</mat-icon>Relatórios</a>
+      <a mat-list-item routerLink="/dashboard"><mat-icon>dashboard</mat-icon>Dashboard</a>
+      <mat-expansion-panel class="painel">
+        <mat-expansion-panel-header class="painel">
+          <mat-panel-title class="painel-text"><mat-icon>description</mat-icon>Bandejax</mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item routerLink="/bandejax/corte">Corte</a>
+        <a mat-list-item routerLink="/bandejax/conformacao">Conformação</a>
+        <a mat-list-item routerLink="/bandejax/tratamento">Tratamento</a>
+      </mat-expansion-panel>
+      <a mat-list-item routerLink="/fila"><mat-icon>assessment</mat-icon>Fila</a>
+      <a mat-list-item routerLink="/relatorios"><mat-icon>assignment</mat-icon>Relatórios</a>
+      <mat-expansion-panel class="painel">
+        <mat-expansion-panel-header class="painel">
+          <mat-panel-title class="painel-text"><mat-icon>pie_chart</mat-icon>Indicadores</mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item routerLink="/indicadores/onepage">One Page</a>
+        <a mat-list-item routerLink="/bandejax">Lista Única</a>
+      </mat-expansion-panel>
+    
+    
+    
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" id="app">
+      <div class="box1">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -20,8 +39,18 @@
         (click)="opened=!opened">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>{{comp}}</span>
-      
+      <span>Portal PPCP - Primárias</span>
+      </div>
+      <div class="box2">
+        <button mat-flat-button color="primary"><mat-icon>person</mat-icon>Login</button>
+        <button mat-icon-button color="basic" id="login" [matMenuTriggerFor]="afterMenu">
+          <mat-icon>settings</mat-icon>
+        </button>
+        <mat-menu #afterMenu="matMenu" xPosition="after">
+          <button mat-menu-item>Configurações</button>
+          <button mat-menu-item>Logout</button>
+        </mat-menu>
+      </div>
     </mat-toolbar>
     <ng-content>
       

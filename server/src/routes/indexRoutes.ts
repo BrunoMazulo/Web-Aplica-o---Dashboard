@@ -16,7 +16,8 @@ class IndexRoutes{
        // Ao acessar essa rota, o método index da classe indexController será executado.
       // this.router.get('/', indexController.index);
        this.router.get('/', indexController.indhjk);
-
+       this.router.get('/:heij', indexController.indichjkunico);
+       this.router.get('/ops/:heijops', indexController.indopsatrasadas);
     }
 }
 
