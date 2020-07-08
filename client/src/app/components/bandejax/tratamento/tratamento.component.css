@@ -24,11 +24,12 @@
 .cabecalho {
     background: rgb(40, 6, 163);
 	text-align: center;
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
     color: white;
     width: 100vw;
     max-height: 3px;
     min-height: 10vh;
+    font-size: 2vw;
 }
 
 .cabecalho2 {
@@ -61,3 +62,53 @@
     /* margin: 0px 0px 0px 15px; */
     /* padding: 15px 5px 5px 5px; */
 }
+#app{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    height: 100%;
+    width: 100vw;
+}
+
+
+.box{
+	width: 100%;
+	margin: 5px;
+	overflow: auto;
+}
+.filter {
+	display: flex;
+	min-width: 100px;
+	justify-content: flex-start;
+}
+
+.row {
+	flex-direction: row;
+}
+.column {
+	flex-direction: column;
+}
+
+table {
+	width: 100%;
+  }
+  
+  .mat-form-field {
+	font-size: 14px;
+	width: 100%;
+  }
+
+  th{
+	  /* background-color: #e69f1c; */
+	  background-color: #3f51b5;
+	  /*#3f51b5*/
+	  color: white;
+  }
+
+.mat-row:nth-child(even){
+	/*background-color: lightgrey;*/
+	}
+
+.mat-row:nth-child(odd){
+	background-color: white;
+	}
